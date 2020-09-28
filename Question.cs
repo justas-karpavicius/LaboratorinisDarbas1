@@ -12,18 +12,25 @@ namespace LaboratorinisDarbas1
 		public double Difficulty { get; set; }
 		public string Author { get; set; }
 		public string QuestionText { get; set; }
-		public List<string> PossibleAnswers { get; set; }
-		public int IndexOfAnswer { get; set; }
+		public string PossibleAnswer1 { get; set; }
+		public string PossibleAnswer2 { get; set; }
+		public string PossibleAnswer3 { get; set; }
+		public string PossibleAnswer4 { get; set; }
+		public string Answer { get; set; }
 
 		public Question(string topic, double difficulty, string author, string questionText,
-			List<string> possibleAnswers, int indexOfAnswer)
+			string possibleAnswer1, string possibleAnswer2, string possibleAnswer3,
+			string possibleAnswer4, string answer)
 		{
 			this.Topic = topic;
 			this.Difficulty = difficulty;
 			this.Author = author;
 			this.QuestionText = questionText;
-			this.PossibleAnswers = possibleAnswers;
-			this.IndexOfAnswer = indexOfAnswer;
+			this.PossibleAnswer1 = possibleAnswer1;
+			this.PossibleAnswer2 = possibleAnswer2;
+			this.PossibleAnswer3 = possibleAnswer3;
+			this.PossibleAnswer4 = possibleAnswer4;
+			this.Answer = answer;
 		}
 	}
 }		
