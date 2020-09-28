@@ -8,9 +8,17 @@ using System.Globalization;
 
 namespace LaboratorinisDarbas1
 {
+	/// <summary>
+	/// Static class containing methods for input / output
+	/// </summary>
 	static class InOutUtils
 	{
-		public static List<Question> ReadQuestions(string fileName)
+        /// <summary>
+        /// Reads list of questions
+        /// </summary>
+        /// <param name="fileName">Name of input file</param>
+        /// <returns>List of questions</returns>
+        public static List<Question> ReadQuestions(string fileName)
 		{
 			List<Question> Questions = new List<Question>();
 			string[] Lines = File.ReadAllLines(fileName, Encoding.UTF8);
@@ -24,8 +32,14 @@ namespace LaboratorinisDarbas1
 			return Questions;
 		}
 
+		/// <summary>
+		/// Prints input data to console
+		/// </summary>
+		/// <param name="Questions">List of questions</param>
 		public static void PrintData(List<Question> Questions)
         {
+			Console.OutputEncoding = Encoding.UTF8; //Allows Lithuanian alphabet
+			//Prints initial template of data table
 			Console.WriteLine(new string('-', 80));
 			Console.WriteLine("|{0,7}| {1,-25} | {2,-25} | {3, 12} |",
 				"Eil.Nr.", "Tema", "Autorius", "Sudėtingumas");
@@ -38,7 +52,8 @@ namespace LaboratorinisDarbas1
 				"Ats.var.Nr.1", "Ats.var.Nr.2", "Ats.var.Nr.3", "Ats.var.Nr.4");
 			Console.WriteLine(new string('-', 80));
 			Console.WriteLine("| {0, -76} |", "Teisingas atsakymas: ...");
-			Console.WriteLine(new string('-', 80));
+            Console.WriteLine(new string('-', 80));
+			//Prints data formatted into table
 			int count = 1;
 			foreach (Question question in Questions)
             {
@@ -47,6 +62,7 @@ namespace LaboratorinisDarbas1
 				Console.WriteLine("|{0,7}| {1,-25} | {2,-25} | {3, 12:F0} |",
 					count++ + ".", question.Topic, question.Author, question.Difficulty);
 				Console.WriteLine(new string('-', 80));
+				//breaks lines when question text doesn't fit into one line
 				bool QuestionTextPrinted = false;
 				int counter = 0;
 				while (!QuestionTextPrinted)
@@ -77,54 +93,17 @@ namespace LaboratorinisDarbas1
 				Console.WriteLine(new string('-', 80));
 			}
 			Console.WriteLine("");
-			//foreach (Dog dog in Dogs)
-			//{
-			//	Console.WriteLine("| {0,8} | {1,-15} | {2,-15} | {3,-12:yyyy-MM-dd} | {4,-8} |",
-			//   dog.ID, dog.Name, dog.Breed, dog.BirthDate, dog.Gender);
-			//}
-			//Console.WriteLine(new string('-', 74));
 		}
-        //public static void PrintQuestions(List<Question> Questions)
-        //{
-        //	//Console.WriteLine("Protmūšio klausimai:");
-        //	//Console.Write("--------------------------------------------------------------------------------\r\n");
-        //	//Console.Write("| Tema     | Sudė-| Klausimas		              | Atsakymo    | Teisingas   |\r\n");
-        //	//Console.Write("|          | tin- |			                      | Variantas   | Atsakymas   |\r\n");
-        //	//Console.Write("|          | gu-  |				                  |             |             |\r\n");
-        //	//Console.Write("|          | mas  |                                |             |             |\r\n");
-        //	//Console.Write("--------------------------------------------------------------------------------\r\n");
-        //	//foreach (Question question in Questions)
-        //	//{
-        //	//	Console.WriteLine("| {0,-8} | {1, 4} | {2,-30} | {3,-11} | {4,-11} |",
-        //	//    question.Topic, question.Difficulty, question.QuestionText,
-        //	//	question.PossibleAnswers[1], question.PossibleAnswers[question.IndexOfAnswer]);
-        //	//}
-        //	Console.WriteLine("Protmūšio klausimai:");
-        //	foreach (Question question in Questions)
-        //	{
-        //		Console.WriteLine("| {0} | {1:f} | {2} | {3} | {4} | {5} | {6} | {7} | {8} |",
-        //		question.Topic, question.Difficulty, question.Author,
-        //		question.QuestionText, question.PossibleAnswer1, question.PossibleAnswer2,
-        //		question.PossibleAnswer3, question.PossibleAnswer4, question.Answer);
-        //	}
-        //	Console.WriteLine("");
-        //}
-
-        //public static void PrintTopics(List<Topic> Topics)
-        //      {
-        //	Console.WriteLine("Protmūšio temos:");
-        //	foreach (Topic topic in Topics)
-        //	{
-        //		Console.WriteLine("| {0} | {1:f} | {2} |",
-        //              topic.TopicName, topic.AverageDifficulty, topic.AmountOfQuestions);
-        //	}
-        //	Console.WriteLine("");
-        //}
-
+        
+		/// <summary>
+		/// Prints list of most difficult topics to console
+		/// </summary>
+		/// <param name="Topics">List of most difficult topics</param>
         public static void PrintDifficultTopics(List<string> Topics)
         {
+			Console.OutputEncoding = Encoding.UTF8; //Allows Lithuanian alphabet
 			Console.WriteLine(new string('-', 80));
-			Console.WriteLine("| {0, -76} |", "Sunkiausios temos:");
+            Console.WriteLine("| {0, -76} |", "Sunkiausios temos:");
 			Console.WriteLine(new string('-', 80));
 			foreach (string topic in Topics)
 			{
@@ -134,16 +113,13 @@ namespace LaboratorinisDarbas1
 			Console.WriteLine("");
         }
 
-        //public static void PrintAuthors(List<Author> Authors)
-        //{
-        //	Console.WriteLine("Protmūšio klausimų autoriai:");
-        //	foreach (Author author in Authors)
-        //		Console.WriteLine("| {0} | {1} |", author.AuthorName, author.AmountOfQuestions);
-        //	Console.WriteLine("");
-        //}
-
+        /// <summary>
+        /// Prints list of most productive authors to console
+        /// </summary>
+        /// <param name="ProductiveAuthors">List of most productive authors</param>
         public static void PrintProductiveAuthors(List<Author> ProductiveAuthors)
         {
+			Console.OutputEncoding = Encoding.UTF8; //Allows Lithuanian alphabet
 			Console.WriteLine(new string('-', 80));
 			Console.WriteLine("| {0, -76} |", "Daugiausia klausimų sukūrę autoriai:");
 			Console.WriteLine(new string('-', 80));
@@ -156,8 +132,15 @@ namespace LaboratorinisDarbas1
 			Console.WriteLine("");
 		}
 
-		public static void PrintQuestionsToCSVFile(string fileName, Question[] Questions, int length)
+        /// <summary>
+        /// Prints array of questions to CSV file
+        /// </summary>
+        /// <param name="fileName">Output file name</param>
+        /// <param name="Questions">Array of questions</param>
+        /// <param name="length">Length of array</param>
+        public static void PrintQuestionsToCSVFile(string fileName, Question[] Questions, int length)
 		{
+			Console.OutputEncoding = Encoding.UTF8; //Allows Lithuanian alphabet
 			string[] lines = new string[length + 1];
             lines[0] = String.Format("{0};{1};{2};{3};{4};{5};{6};{7};{8}",
             "Tema", "Sudėtingumas", "Autorius", "Klausimo tekstas",

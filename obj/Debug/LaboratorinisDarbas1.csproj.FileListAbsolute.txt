@@ -2,7 +2,6 @@ C:\Users\Admins\source\repos\Objektinis programavimas 1\L1\LaboratorinisDarbas1\
 C:\Users\Admins\source\repos\Objektinis programavimas 1\L1\LaboratorinisDarbas1\LaboratorinisDarbas1\obj\Debug\LaboratorinisDarbas1.csproj.CoreCompileInputs.cache
 C:\Users\Admins\source\repos\Objektinis programavimas 1\L1\LaboratorinisDarbas1\LaboratorinisDarbas1\obj\Debug\LaboratorinisDarbas1.exe
 C:\Users\Admins\source\repos\Objektinis programavimas 1\L1\LaboratorinisDarbas1\LaboratorinisDarbas1\obj\Debug\LaboratorinisDarbas1.pdb
-C:\Users\Admins\source\repos\Objektinis programavimas 1\L1\LaboratorinisDarbas1\LaboratorinisDarbas1\Data.csv
 C:\Users\Admins\source\repos\Objektinis programavimas 1\L1\LaboratorinisDarbas1\LaboratorinisDarbas1\LaboratorinisDarbas1.exe.config
 C:\Users\Admins\source\repos\Objektinis programavimas 1\L1\LaboratorinisDarbas1\LaboratorinisDarbas1\LaboratorinisDarbas1.exe
 C:\Users\Admins\source\repos\Objektinis programavimas 1\L1\LaboratorinisDarbas1\LaboratorinisDarbas1\LaboratorinisDarbas1.pdb

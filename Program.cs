@@ -6,12 +6,22 @@ using System.Threading.Tasks;
 
 namespace LaboratorinisDarbas1
 {
+	/// <summary>
+	/// Program
+	/// </summary>
 	class Program
 	{
-        private const int ArrLength = 5;
+        //Constant for length of to-be-printed
+        // array of questions
+        private const int ArrLength = 5; 
+
+		/// <summary>
+		/// Main function
+		/// </summary>
+		/// <param name="args"></param>
 		static void Main(string[] args)
 		{
-			List<Question> Questions = InOutUtils.ReadQuestions("Data.csv");
+			List<Question> Questions = InOutUtils.ReadQuestions("Data4.csv");
 			InOutUtils.PrintData(Questions);
 			List<string> MostDifficultTopics = TaskUtils.FindMostDifficultTopics(TaskUtils.
 				FindTopicAverageDifficulty(TaskUtils.FindTopicTotalDifficulty(Questions)));
@@ -21,7 +31,7 @@ namespace LaboratorinisDarbas1
 			InOutUtils.PrintProductiveAuthors(MostProductiveAuthors);
             Question[] SelectedQuestions = new Question[ArrLength];
 			SelectedQuestions = TaskUtils.SelectQuestions(Questions, ArrLength);
-			InOutUtils.PrintQuestionsToCSVFile("Results.csv", SelectedQuestions, ArrLength);
+			InOutUtils.PrintQuestionsToCSVFile("Klausimai1.csv", SelectedQuestions, ArrLength);
 		}
 	}
 }
