@@ -144,7 +144,7 @@ namespace LaboratorinisDarbas1
             {
                 int r = random.Next(0, Questions.Count);
                 //while generated random number already exists, generate new
-                while (RandomNumbers.Contains(r))
+                while (Array.Exists(RandomNumbers, element => element == r))
                     r = random.Next(0, Questions.Count);
                 SelectedQuestions[i] = Questions[r];
             }

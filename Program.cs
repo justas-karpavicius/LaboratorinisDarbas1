@@ -21,8 +21,8 @@ namespace LaboratorinisDarbas1
 		/// <param name="args"></param>
 		static void Main(string[] args)
 		{
-			List<Question> Questions = InOutUtils.ReadQuestions("Data4.csv");
-			InOutUtils.PrintData(Questions);
+			List<Question> Questions = InOutUtils.ReadQuestions("Data3.csv");
+			InOutUtils.PrintData(Questions, "Data.txt");
 			List<string> MostDifficultTopics = TaskUtils.FindMostDifficultTopics(TaskUtils.
 				FindTopicAverageDifficulty(TaskUtils.FindTopicTotalDifficulty(Questions)));
 			InOutUtils.PrintDifficultTopics(MostDifficultTopics);

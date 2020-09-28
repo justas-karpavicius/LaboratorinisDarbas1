@@ -33,66 +33,66 @@ namespace LaboratorinisDarbas1
 		}
 
 		/// <summary>
-		/// Prints input data to console
+		/// Prints input data to separate txt file
 		/// </summary>
 		/// <param name="Questions">List of questions</param>
-		public static void PrintData(List<Question> Questions)
+		/// <param name="fileName">Name of txt file for output</param>
+		public static void PrintData(List<Question> Questions, string fileName)
         {
-			Console.OutputEncoding = Encoding.UTF8; //Allows Lithuanian alphabet
+			StreamWriter sw = new StreamWriter(@"C:\Users\Admins\source\repos\Objektinis programavimas 1\L1\LaboratorinisDarbas1\LaboratorinisDarbas1\" + fileName, false, Encoding.UTF8);
 			//Prints initial template of data table
-			Console.WriteLine(new string('-', 80));
-			Console.WriteLine("|{0,7}| {1,-25} | {2,-25} | {3, 12} |",
+			sw.WriteLine(new string('-', 80));
+			sw.WriteLine("|{0,7}| {1,-25} | {2,-25} | {3, 12} |",
 				"Eil.Nr.", "Tema", "Autorius", "Sudėtingumas");
-			Console.WriteLine(new string('-', 80));
-			Console.WriteLine("| {0,-76} |", "Klausimas");
-			Console.WriteLine(new string('-', 80));
-			Console.WriteLine("| {0, -76} |", "Atsakymo variantai:");
-			Console.WriteLine(new string('-', 80));
-			Console.WriteLine("| {0,-18} | {1,-16} | {2,-18} | {3,-15} |",
+			sw.WriteLine(new string('-', 80));
+			sw.WriteLine("| {0,-76} |", "Klausimas");
+			sw.WriteLine(new string('-', 80));
+			sw.WriteLine("| {0, -76} |", "Atsakymo variantai:");
+			sw.WriteLine(new string('-', 80));
+			sw.WriteLine("| {0,-18} | {1,-16} | {2,-18} | {3,-15} |",
 				"Ats.var.Nr.1", "Ats.var.Nr.2", "Ats.var.Nr.3", "Ats.var.Nr.4");
-			Console.WriteLine(new string('-', 80));
-			Console.WriteLine("| {0, -76} |", "Teisingas atsakymas: ...");
-            Console.WriteLine(new string('-', 80));
+			sw.WriteLine(new string('-', 80));
+			sw.WriteLine("| {0, -76} |", "Teisingas atsakymas: ...");
+            sw.WriteLine(new string('-', 80));
 			//Prints data formatted into table
 			int count = 1;
 			foreach (Question question in Questions)
             {
-                Console.WriteLine("| {0, 76} |", "");
-				Console.WriteLine(new string('-', 80));
-				Console.WriteLine("|{0,7}| {1,-25} | {2,-25} | {3, 12:F0} |",
+                sw.WriteLine("| {0, 76} |", "");
+				sw.WriteLine(new string('-', 80));
+				sw.WriteLine("|{0,7}| {1,-25} | {2,-25} | {3, 12:F0} |",
 					count++ + ".", question.Topic, question.Author, question.Difficulty);
-				Console.WriteLine(new string('-', 80));
+				sw.WriteLine(new string('-', 80));
 				//breaks lines when question text doesn't fit into one line
 				bool QuestionTextPrinted = false;
 				int counter = 0;
 				while (!QuestionTextPrinted)
 				{
-					Console.Write("| ");
+					sw.Write("| ");
                     for (int i = 0; i < 76; i++)
                     {
-						Console.Write(question.QuestionText[counter++]);
+						sw.Write(question.QuestionText[counter++]);
 						if(counter == question.QuestionText.Length)
                         {
 							for (int j = i; j < 75; j++)
-								Console.Write(" ");
+								sw.Write(" ");
 							QuestionTextPrinted = true;
 							break;
                         }
                     }
-					Console.WriteLine(" |");
+					sw.WriteLine(" |");
 				}
-				Console.WriteLine(new string('-', 80));
-				Console.WriteLine("| {0, -76} |", "Atsakymo variantai:");
-				Console.WriteLine(new string('-', 80));
-				Console.WriteLine("| {0,-18} | {1,-16} | {2,-18} | {3,-15} |",
+				sw.WriteLine(new string('-', 80));
+				sw.WriteLine("| {0, -76} |", "Atsakymo variantai:");
+				sw.WriteLine(new string('-', 80));
+				sw.WriteLine("| {0,-18} | {1,-16} | {2,-18} | {3,-15} |",
 					question.PossibleAnswer1, question.PossibleAnswer2,
 					question.PossibleAnswer3, question.PossibleAnswer4);
-				Console.WriteLine(new string('-', 80));
-				Console.WriteLine("| {0, -76} |", "Teisingas atsakymas: " +
-					question.Answer);
-				Console.WriteLine(new string('-', 80));
+				sw.WriteLine(new string('-', 80));
+				sw.WriteLine("| {0, -76} |", "Teisingas atsakymas: " + question.Answer);
+				sw.WriteLine(new string('-', 80));
 			}
-			Console.WriteLine("");
+			sw.Close();
 		}
         
 		/// <summary>
